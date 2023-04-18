@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="0417_homework"/>
+<aop-project name="hello_di"/>
+<aop-project name="day0417"/>
+</aop-reference-model>

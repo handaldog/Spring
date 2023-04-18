@@ -1,0 +1,12 @@
+package com.ssafy.ws;
+
+public class Reader {
+
+	private Book book;
+	
+	public void read() {
+		System.out.println();
+	}
+	
+	
+}

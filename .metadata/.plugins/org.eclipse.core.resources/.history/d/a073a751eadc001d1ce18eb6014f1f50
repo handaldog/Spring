@@ -1,0 +1,17 @@
+package wsmodel1;
+
+import java.sql.SQLException;
+
+public class TomcatTest {
+public static void main(String[] args) throws SQLException {
+	// 여기가 들어갈 수 있도록 실습하세요
+	// ws1 : xml 태그로 객체 등록해서 실행시키기
+	// ws2 : annotation을 스캔해서 실행시키기
+	
+	BoardService service = null;
+	
+	for(BoardDto dto : service.getBoards()) {
+		System.out.println(dto);
+	}
+}
+}

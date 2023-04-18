@@ -1,0 +1,18 @@
+package Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller // 왕따임..
+public class BoardController {
+
+	@RequestMapping("/list")
+	public String list() {
+		return "BoardList";
+	}
+
+	@RequestMapping("/write")
+	public String write() {
+		return "Boardwrite";
+	}
+}
