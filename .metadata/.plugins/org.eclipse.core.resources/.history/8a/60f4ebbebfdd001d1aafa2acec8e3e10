@@ -1,0 +1,13 @@
+package com.ssafy.ws;
+
+public class Magazine implements Book{
+
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return "잡지을(를) 열심히 읽습니다.";
+	}
+	
+	
+
+}

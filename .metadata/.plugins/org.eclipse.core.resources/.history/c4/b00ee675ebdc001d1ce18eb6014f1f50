@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="all" class="wsmodel1.BoardService"></bean>
+	<bean id="util" class="wsmodel1.DBUtil"></bean>
+	<bean id="dao" class="wsmodel1.BoardDao"></bean>
+</beans>
