@@ -11,6 +11,7 @@
 	<bean id="sumin" class="aop_version1.boy"></bean>
 	<bean id="aspect" class="aop_version1.CommonAspect"></bean>
 
+
 	<!-- <context:component-scan base-package="aop_version1"></context:component-scan> -->
 
 	<aop:config>
