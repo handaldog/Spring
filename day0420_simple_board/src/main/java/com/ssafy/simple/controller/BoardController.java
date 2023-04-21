@@ -78,9 +78,9 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	@GetMapping("/detail")
-	public String detail(int bno) {
-		service
-	}
+//	@GetMapping("/detail")
+//	public String detail(int bno) {
+//		service
+//	}
 
 }
