@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.BoardMapper">
+
+	<insert id="insert" parameterType="BoardDto">
+		INSERT INTO BOARD_TB(BWRTIER,
+		BTITLE, BCONTENT, BWRITE_DATE)
+		VALUES(#{bwriter}, #{btitle},
+		#{bcontent}, now())
+	</insert> <!-- id 꼭 맞춰야함. -->
+
+
+	<select id="selectOne" resultType="BoardDto">
+		SELECT BNO, BWRITER, BTITLE,
+		BCONTENT, BWRITE_DATE as bwriteDate
+		FROM BOARD_TB
+		WHERE BNO = #{bno}
+	</select>
+
+	<select id="selectAll" resultMap="rrr">
+		SELECT *
+		FROM BOARD_TB
+	</select>
+	
+	<resultMap type="BoardDto" id="rrr">
+		<result column="bwrite_date" property="bwriteDate" />
+	</resultMap>
+
+</mapper>

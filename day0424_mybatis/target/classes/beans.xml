@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="ddd" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&amp;serverTimezone=UTC"></property>
+		<property name="username" value="ssafy" />
+		<property name="password" value="ssafy" />
+	</bean>
+
+	<bean id="fff" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ddd"></property>
+		<property name="typeAliasesPackage" value="model"></property> <!-- com.ssafy.simple.model.dto -->
+		
+		<property name="mapperLocations" value="classpath:/**/model/*Mapper.xml"></property>
+	</bean>
+	
+	
+	<!-- 얘가 ??? 채우던 거랑 ResultSet에서 getString, getInt 하던거 대신해주는 클래스 ~!! -->
+	<bean id="ttt" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="fff"></constructor-arg>
+	</bean>
+	
+	<!-- BoardMapper 인터페이스 dao 객체로 생성해주는 프록시 관리자 -->
+	<bean id = "mapperScannerConfigure" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="model"></property>
+	</bean>
+	
+</beans>
