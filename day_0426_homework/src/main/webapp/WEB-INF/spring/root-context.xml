@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		<context:component-scan base-package="com.ssafy.homework.model"></context:component-scan>
+		
+		<bean id="ddd" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&amp;serverTimezone=UTC"></property>
+		<property name="username" value="ssafy" />
+		<property name="password" value="ssafy" />
+	</bean>
+
+
+	<bean id="fff" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ddd"></property>
+		<property name="typeAliasesPackage"
+			value="com.ssafy.homework.model"></property> <!-- com.ssafy.simple.model.dto -->
+
+		<property name="mapperLocations"
+			value="classpath:/**/dao/*Mapper.xml"></property>
+	</bean>
+
+	<!-- 얘가 ??? 채우던 거랑 ResultSet에서 getString, getInt 하던거 대신해주는 클래스 ~!! -->
+	<bean id="ttt" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="fff"></constructor-arg>
+	</bean>
+	
+
+<!-- BoardMapper 인터페이스 dao 객체로 생성해주는 프록시 관리자 -->
+<!-- Mapper : 클래스가 아니라 인터페이스에 붙이는 에노테이션, 생략해도 실행은 됨. -->
+	<bean id = "mapperScannerConfigure" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="com.ssafy.simple.homework.dao"></property>
+	</bean>
+	
+	<!-- aop에서 공통작업을 구현한 클래스 역할을 해주는 객체  -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ddd"></property>
+	
+	</bean>
+	
+	<!-- aop에서 pointcut 잡고 before, after 등등 작업하던거 그냥 애노테이션 처리 가능하도록 해주는 프록시 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans>

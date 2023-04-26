@@ -21,15 +21,55 @@
 	</c:forEach>
 
 
-	<c:forEach items="${comment}" var="co">
-		<div>${co.cwriter }:${co.ccontent }</div>
-	</c:forEach>
+	<hr>
+	<div id=areaComent></div>
 
-	<form action="${root }/comment/wcomment" method="post">
-		<input type="text" name="ccontent"> <input type="hidden"
-			name="bno" value="${board.bno}"> <input type="submit"
-			value="작성">
-	</form>
+	<input type="text" id="content" placeholder="댓글을 작성해주세요.">
+	<button id="btncoment">[댓글 작성]</button>
+
+	<script type="text/javascript">
+		function getComentList() {
+			fetch('${root}/wcomment?bno=${board.bno}')
+			.then(function (resp) {
+				return resp.json();
+			})
+			.then(function (data) {
+				console.log('백엔드가 준 댓글 목록', data);
+				let cdtos = '';
+				for(let i=0;i<data.length; i++){
+					cdtos += '작성자 : ' + data[i].cwriter + "내용 :" + data[i].ccontent + '<br>'; 
+				}
+				document.getElementById('areaComent').innerHTML = cdtos;
+			})
+		}
+		
+		getComentList();
+		
+		let btncoment = document.getElementById('btncoment');
+		btncoment.onclick = function(){
+			let content = document.getElementById('content').value;
+			
+			let sendInfo = {
+					method:'POST',
+				body : JSON.stringify({
+					'bno' : '${board.bno}',
+					'ccontent' : content
+				}),
+				headers:{
+					'Content-Type' : 'application/json'
+				}
+			}
+			fetch('${root}/wcomment', sendInfo)
+			.then(function (resp) {
+				return resp.text();
+			})
+			.then(function (data) {
+				console.log('백엔드가 응답한 데이터 :' + data);
+				getComentList();
+			})
+		}
+	
+	</script>
 
 
 

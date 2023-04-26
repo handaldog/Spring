@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day_0426_homework.model.dao.BoardMapper">
+
+<insert id="insert" parameterType="BoardDto">
+	INSERT INTO (BWRITER, BTITLE, BCONTENT, BWRITE_DATE) VALUES(#{bno}, #{btitle}, #{bcontent}, #{bwrite_date})
+</insert>
+
+<select id="selectAll" resultType="BoardDto">
+	SELECT BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE
+	FROM BOARD_TB
+</select>
+
+<delete id="delete" parameterType="int">
+DELETE FROM BOARD_TB WHERE BNO=#{bno}
+</delete>
+
+<select id="selectOne" parameterType="int" resultType="BoardDto">
+	SELECT BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE
+	FROM BOARD_TB
+	WHERE = BNO=#{bno}
+</select>
+
+</mapper>
