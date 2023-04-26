@@ -3,12 +3,13 @@
 <mapper namespace="com.ssafy.simple.model.dao.BoardMapper">
 
 
-	<insert id="insert" parameterType="BoardDto" useGeneratedKeys="true" keyProperty="bno">
+	<insert id="insert" parameterType="BoardDto"
+		useGeneratedKeys="true" keyProperty="bno">
 		INSERT INTO BOARD_TB(BWRITER,
 		BTITLE, BCONTENT, BWRITE_DATE)
 		VALUES
-			(#{bwriter}, #{btitle},
-									#{bcontent}, now())
+		(#{bwriter}, #{btitle},
+		#{bcontent}, now())
 	</insert>
 
 	<delete id="delete">
@@ -23,7 +24,7 @@
 	</select>
 
 	<select id="selectOne" resultType="BoardDto">
-		SELECT BWRITER, BTITLE,
+		SELECT BNO, BWRITER, BTITLE,
 		BCONTENT, BWRITE_DATE bwriteDate
 		FROM BOARD_TB
 		WHERE BNO = #{bno}

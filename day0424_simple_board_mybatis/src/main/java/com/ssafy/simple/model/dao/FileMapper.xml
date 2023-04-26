@@ -3,7 +3,6 @@
 <mapper namespace="com.ssafy.simple.model.dao.FileMapper">
 
 	<insert id="insert" parameterType="FileDto">
-	
 		INSERT INTO FILE_TB(ORIGINAL_NAME, SAVED_PATH, BNO)
 		VALUES(#{original_name}, #{saved_path}, #{bno})
 	</insert>
@@ -15,5 +14,15 @@
 			FILE_TB
 		WHERE
 			BNO=#{bno}
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="FileDto">
+		SELECT 
+			FNO, BNO, ORIGINAL_NAME AS original_name, SAVED_PATH as saved_path
+		FROM
+			FILE_TB
+		WHERE
+			FNO=#{fno}
+		
 	</select>
 </mapper>
