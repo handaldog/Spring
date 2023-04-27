@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	유혜빈이 만든 도서목록
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>가격</th>
+				<th>저자</th>
+			</tr>
+		</thead>
+		<tbody id="dataBook">
+
+		</tbody>
+	</table>
+	<script type="text/javascript">
+		let root = "http://localhost:7777/bookcafe";
+		
+		let fetchInfo = {
+				'method' : 'get'
+				
+		}
+		
+		fetch(root + "/book", fetchInfo)
+		.then(function(resp){return resp.json();}) // resp 로 responsebody 한 값이 들어옴. 그거를 제이슨 값으로 바꿔주는 역할.
+		.then(function(data){ // json으로 바꾼 값이 data로 들어감.
+			console.log(data);
+			let tbody = '';
+			for(let i=0;i<data.length; i++){
+				tbody += `<tr>
+				<td>${data[i].bno}</td>
+				<td>${data[i].title}</td>
+				<td>${data[i].price}</td>
+				<td>${data[i].writer}</td>
+				
+				</tr>
+				`
+				
+				
+			}
+			document.getElementById('dataBook').innerHTML += tbody;
+			
+			
+			
+			
+			
+		})
+	</script>
+</body>
+</html>

@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.ssafy.homework.controller" />
+	<context:component-scan base-package="day_0426_homework.controller" />
 	
 	
 	

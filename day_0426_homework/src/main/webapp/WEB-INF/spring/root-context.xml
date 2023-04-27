@@ -39,7 +39,7 @@
 <!-- BoardMapper 인터페이스 dao 객체로 생성해주는 프록시 관리자 -->
 <!-- Mapper : 클래스가 아니라 인터페이스에 붙이는 에노테이션, 생략해도 실행은 됨. -->
 	<bean id = "mapperScannerConfigure" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	<property name="basePackage" value="com.ssafy.simple.homework.dao"></property>
+	<property name="basePackage" value="day_0426_homework.dao"></property>
 	</bean>
 	
 	<!-- aop에서 공통작업을 구현한 클래스 역할을 해주는 객체  -->

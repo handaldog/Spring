@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>도서 추가 화면</h2>
+	제목 :
+	<input type="text" id="title">
+	<br> 저자 :
+	<input type="text" id="writer">
+	<br> 가격 :
+	<input type="number" id="price">
+	<br> 요약 :
+	<input type="text" id="summary">
+	<br>
+	<button id="btnSend">작성완료</button>
+
+	<script type="text/javascript">
+		let root = "http://localhost:7777/bookcafe";
+
+		document.getElementById('btnSend').onclick = function() {
+
+			let params = {
+
+				title : document.getElementById('title').value,
+				writer : document.getElementById('writer').value,
+				price : document.getElementById('price').value,
+				summary : document.getElementById('summary').value
+			}
+
+			let fetchInfo = {
+				'method' : 'post'
+
+			}
+
+			fetch(root + "/book?" + new URLSearchParams(params), fetchInfo) 
+					.then(function(resp) { // ?title={~~}?writer={~~} 를 해줌 (URLSearchParams가.)
+						return resp.text(); // 데이터가 int로 들어오면  text로 바꿔야됨(insert, delete,,,). 객체로 들어오면 json으로 들어와야함(select,,,).
+					}).then(function(data) {
+						console.log(data);
+						if (data == '1') { 
+							alert('글작성 완료. 목록으로 이동');
+							location.href = root + "/list.html";
+						}
+					})
+
+		}
+	</script>
+</body>
+</html>

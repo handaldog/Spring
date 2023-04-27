@@ -152,10 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\SSAFY\Documents\workspace-sts-3.9.14.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\SSAFY\Documents\workspace-sts-3.9.14.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\board5_restapi" path="/board" reloadable="true" source="org.eclipse.jst.jee.server:board5_restapi">
-	<Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/ssafy" password="ssafy" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/ssafyweb?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8" username="ssafy"/> 
-    <WatchedResource>WEB-INF/web.xml</WatchedResource>
-</Context></Host>
+      <Context docBase="C:\Users\SSAFY\Documents\workspace-sts-3.9.14.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\SSAFY\Documents\workspace-sts-3.9.14.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day_0426_homework" path="/homework" reloadable="true" source="org.eclipse.jst.jee.server:day_0426_homework"/></Host>
     </Engine>
   </Service>
 </Server>

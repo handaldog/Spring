@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.simpleboard.model.mapper.BoardMapper">
+
+	<insert id="insert" parameterType="BoardDto" useGeneratedKeys="true" keyProperty="bno">
+	
+		INSERT INTO BOARD_TB(BWRITER, BTITLE, BCONTENT, BWRITE_DATE)
+		VALUES(#{bwriter}, #{btitle}, #{bcontent}, NOW())
+		
+	</insert>
+	
+	<select id="selectTotalCount" resultType="int">
+		
+		SELECT COUNT(BNO)
+		FROM BOARD_TB
+		
+	</select>
+	
+	<select id="select" parameterType="int" resultType="BoardDto">
+		SELECT
+		<include refid="ttt"/>
+		FROM BOARD_TB
+		ORDER BY BNO DESC 
+		LIMIT #{startRow}, 10
+	</select>
+	
+	<select id="selectOne" resultType="BoardDto">
+																		 
+		SELECT BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE as bwriteDate
+		FROM BOARD_TB
+		WHERE BNO = #{bno}
+	
+	</select>
+	
+	<select id="selectAll" resultType="BoardDto">
+	
+		SELECT
+		<include refid="ttt"/>
+		FROM BOARD_TB
+	
+	</select>
+	
+	<delete id="delete" parameterType="int">
+	
+		delete from board_tb where bno = #{bno}
+	
+	</delete>
+	
+	<sql id="ttt">
+		BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE as bwriteDate
+	</sql>
+</mapper>

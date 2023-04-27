@@ -9,7 +9,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
         <java-version>1.8</java-version>
-        <m2eclipse.wtp.contextRoot>day0426_homework</m2eclipse.wtp.contextRoot>
+        <m2eclipse.wtp.contextRoot>homework</m2eclipse.wtp.contextRoot>
         <!-- maven compiler plugin version :: https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html -->
         <maven.compiler.source>${java-version}</maven.compiler.source>
         <maven.compiler.target>${java-version}</maven.compiler.target>
