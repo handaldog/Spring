@@ -24,7 +24,7 @@
 	<bean id="fff" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ddd"></property>
 		<property name="typeAliasesPackage"
-			value="com.ssafy.homework.model"></property> <!-- com.ssafy.simple.model.dto -->
+			value="day_0426_homework.model"></property> <!-- com.ssafy.simple.model.dto -->
 
 		<property name="mapperLocations"
 			value="classpath:/**/dao/*Mapper.xml"></property>
