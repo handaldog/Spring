@@ -40,7 +40,7 @@
 			<div class="mt-3">
 				<ul>
 					<c:forEach var="file" items="${article.fileInfos}">
-						<li>${file.originalFile} <a href="#" class="filedown" sfolder="${file.saveFolder}" sfile="${file.saveFile}" ofile="${file.originalFile}">[다운로드]</a>
+						<li>${file.originalFile} <a href="${root }/file/download/${file.saveFolder}/${file.originalFile}/${file.saveFile}">[다운로드]</a>
 					</c:forEach>
 				</ul>
 			</div>
@@ -89,18 +89,18 @@
       <input type="hidden" id="key" name="key" value="${key}">
       <input type="hidden" id="word" name="word" value="${word}">
     </form>
-    <form id="downform" action="${root}/article/download">
+  <%--   <form id="downform" action="${root}/article/download">
 	  <input type="hidden" name="sfolder">
 	  <input type="hidden" name="ofile">
 	  <input type="hidden" name="sfile">
-	</form>
+	</form> --%>
     <script>
     document.querySelector("#btn-list").addEventListener("click", function () {
   	  let form = document.querySelector("#form-param");
   	  form.setAttribute("action", "${root}/article/list");
         form.submit();
     });
-    let files = document.querySelectorAll(".filedown");
+   /*  let files = document.querySelectorAll(".filedown");
     files.forEach(function(file) {
     	file.addEventListener("click", function() {
     		document.querySelector("[name='sfolder']").value = file.getAttribute("sfolder");
@@ -108,6 +108,6 @@
     		document.querySelector("[name='sfile']").value = file.getAttribute("sfile");
     		document.querySelector("#downform").submit();
     	});
-    });
+    }); */
     </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

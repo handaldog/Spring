@@ -9,7 +9,7 @@
           </h2>
         </div>
         <div class="col-lg-8 col-md-10 col-sm-12">
-          <form id="form-register" method="POST" enctype="multipart/form-data" action="">
+          <form id="form-register" method="POST" enctype="multipart/form-data" action="${root }/article/list">
           	<input type="hidden" name="pgno" value="1">
 		    <input type="hidden" name="key" value="">
 		    <input type="hidden" name="word" value="">

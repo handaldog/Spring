@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +37,12 @@ import com.ssafy.util.PageNavigation;
 public class BoardController {
 
 	private final Logger logger = LoggerFactory.getLogger(BoardController.class);
-	private final String UPLOAD_PATH = "/upload";
+
+	@Value("${file.path}")
+	private String uploadPath;
+
+	@Value("${file.imgPath}")
+	private String imgPath;
 
 	@Autowired
 	private ServletContext servletContext;
@@ -67,10 +73,10 @@ public class BoardController {
 //		FileUpload 관련 설정.
 		logger.debug("MultipartFile.isEmpty : {}", files[0].isEmpty());
 		if (!files[0].isEmpty()) {
-			String realPath = servletContext.getRealPath(UPLOAD_PATH);
+//			String realPath = servletContext.getRealPath(uploadPath);
 //			String realPath = servletContext.getRealPath("/resources/img");
 			String today = new SimpleDateFormat("yyMMdd").format(new Date());
-			String saveFolder = realPath + File.separator + today;
+			String saveFolder = uploadPath + File.separator + today;
 			logger.debug("저장 폴더 : {}", saveFolder);
 			File folder = new File(saveFolder);
 			if (!folder.exists())
@@ -155,7 +161,7 @@ public class BoardController {
 	public String delete(@RequestParam("articleno") int articleNo, @RequestParam Map<String, String> map,
 			RedirectAttributes redirectAttributes) throws Exception {
 		logger.debug("delete articleNo : {}", articleNo);
-		boardService.deleteArticle(articleNo, servletContext.getRealPath(UPLOAD_PATH));
+		boardService.deleteArticle(articleNo, servletContext.getRealPath(uploadPath));
 		redirectAttributes.addAttribute("pgno", map.get("pgno"));
 		redirectAttributes.addAttribute("key", map.get("key"));
 		redirectAttributes.addAttribute("word", map.get("word"));
