@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
-<fullyQualifiedTypeName name="model.BoardMapper"/>
-<fullyQualifiedTypeName name="com.ssafy.simple.model.dto.BoardDto"/>
-<fullyQualifiedTypeName name="com.ssafy.simple.model.dao.BoardMapper"/>
-<fullyQualifiedTypeName name="com.ssafy.simple.model.dao.MemberMapper"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
@@ -23,7 +17,6 @@
 <fullyQualifiedTypeName name="day_0426_homework.model.dao.BoardMapper"/>
 <fullyQualifiedTypeName name="day_0426_homework.model.dto.BoardDto"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
 <fullyQualifiedTypeName name="day_0426_homework.model.dao.UserMapper"/>
 <fullyQualifiedTypeName name="day_0426_homework.model.service.UserService"/>
 <fullyQualifiedTypeName name="day_0426_homework.model.service.BoardService"/>
@@ -33,12 +26,8 @@
 <fullyQualifiedTypeName name="day_0426_homework.model.dto.UserDto"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.ssafy.book.model.repository.BookMapper"/>
-<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-<fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
 <fullyQualifiedTypeName name="com.ssafy.book.service.BookService"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.ssafy.book.mode.dto.BookDto"/>
 <fullyQualifiedTypeName name="java.lang.Deprecated"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
@@ -60,4 +49,15 @@
 <fullyQualifiedTypeName name="com.ssafy.board.model.service.MemberService"/>
 <fullyQualifiedTypeName name="com.ssafy.board.model.dto.MemberDto"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
+<fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+<fullyQualifiedTypeName name="com.ssafy.interceptor.ConfirmInterceptor"/>
+<fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,27 +7,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
-	<table>
-		<tr>
-			<td>제목 : ${board.btitle }</td>
-		</tr>
-		<tr>
-			<td>작성자 : ${board.bwriter }</td>
-		</tr>
-		<tr>
-			<td>작성일시 : ${board.bwriteDate }</td>
-		</tr>
-		<tr>
-			<td>내용</td>
-		</tr>
-		<tr>
-			<td>${board.bcontent }</td>
-		</tr>
-	</table>
-	<c:if test="${board.bwriter eq loginInfo.userId }">
-		<a href="${root }/board/remove?bno=${board.bno}">[글 삭제하기]</a>
-	</c:if>
+	<%@ include file="header.jsp"%>
+	제목 : ${board.btitle }
+	<br> 작성자 : ${board.bwriter }
+	<br> 내용 : ${board.bcontent }
+	<br> 첨부된 파일 목록 :
+
+
+	<c:forEach items="${board.files}" var="f">
+	
+원래이름 : ${f.original_name} // (저장된 경로:${f.saved_path})<br>
+파일 다운로드 하기 : <a href="${root }/board/download?fno=${f.fno}">[파일다운로드하기]</a>
+	</c:forEach>
+
+
+	<c:forEach items="${comment}" var="co">
+		<div>${co.cwriter }:${co.ccontent }</div>
+	</c:forEach>
+
+	<form action="${root }/comment/wcomment" method="post">
+		<input type="text" name="ccontent"> <input type="hidden"
+			name="bno" value="${board.bno}"> <input type="submit"
+			value="작성">
+	</form>
+
+
 
 </body>
 </html>
