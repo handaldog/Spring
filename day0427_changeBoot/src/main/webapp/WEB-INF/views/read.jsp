@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
 	<%@ include file="header.jsp"%>
 	제목 : ${board.btitle }
 	<br> 작성자 : ${board.bwriter }

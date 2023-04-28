@@ -57,7 +57,8 @@ public class BoardController {
 	}
 
 	@PostMapping("/write")
-	public String write(BoardDto dto, HttpSession session, MultipartFile[] uploadedFiles) throws SQLException, IllegalStateException, IOException {
+	public String write(BoardDto dto, HttpSession session, MultipartFile[] uploadedFiles)
+			throws SQLException, IllegalStateException, IOException {
 
 		System.out.println(dto);
 		MemberDto user = (MemberDto) session.getAttribute("loginInfo");
@@ -73,7 +74,7 @@ public class BoardController {
 
 	@GetMapping("/read")
 	public String read(int bno, HttpSession session, Model model) throws SQLException {
-		
+
 		MemberDto user = (MemberDto) session.getAttribute("loginInfo");
 
 		if (user == null) {
@@ -82,6 +83,7 @@ public class BoardController {
 
 		model.addAttribute("board", service.read(bno));
 		model.addAttribute("comment", service.coList(bno));
+
 		return "read";
 	}
 

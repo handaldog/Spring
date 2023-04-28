@@ -96,6 +96,7 @@ public class BoardService {
 	@Transactional
 	public BoardDto read(int bno) throws SQLException {
 		BoardDto board = dao.selectOne(bno);
+		board.setFiles(fm.selecList(bno));
 		return board;
 	}
 
